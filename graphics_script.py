@@ -62,14 +62,14 @@ visCB.show()#Finalize and render the figure
 # =============================================================================
 # SEABORN - No balanced
 # =============================================================================
-df_final['activities'].value_counts()
-means = df_final.groupby('activities').mean()
+df_final_wo_outs['activities'].value_counts()
+means = df_final_wo_outs.groupby('activities').mean()
 print(means['pchembl_value'])
-std = df_final.groupby('activities').std()
+std = df_final_wo_outs.groupby('activities').std()
 print(std['pchembl_value'])
 
-count_active = len(df_final[df_final['activities']==1])
-count_inactive = len(df_final[df_final['activities']==0])
+count_active = len(df_final_wo_outs[df_final_wo_outs['activities']==1])
+count_inactive = len(df_final_wo_outs[df_final_wo_outs['activities']==0])
 pct_of_active = count_active/(count_active+count_inactive)
 pct_of_inactive = count_inactive/(count_active+count_inactive)
 
@@ -83,7 +83,7 @@ df_final_regr.reset_index(drop=True)
 import seaborn as sns
 sns.set(style="white")
 sns.set(style="whitegrid", color_codes=True)
-sns.countplot(x='activities', data=df_final_regr, palette='hls')
+sns.countplot(x='activities', data=df_final_wo_outs, palette='hls')
 
 sns.distplot(df_final_regr['pchembl_value'])
 sns.violinplot('activities', 'pchembl_value', data=df_final_regr, palette=["lightblue", "lightpink"])
