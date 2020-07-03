@@ -14,12 +14,12 @@ df_final['MFPS'] = mfps
 ```  
 
 ## Contenido del repositorio
-- tfm_script_balanced.py (modelos de clasificación con balanceo)
-- regression_script.py (modelos de regresión con balanceo)
-- graphics_script.py (gráficos)
-- 5ht2a_definitive_nosalts.csv (set de datos limpio)
-- inchikeys_2.txt (notación InChiKeys que importa el código para adicionar una de las columnas; necesario para eliminar los duplicados)
-Se recomienda ejecutarlo en este orden: 1) regression_script.py, 2) tfm_script_balanced.py, 3) graphics_script.py
+- _tfm_script_balanced.py_ (modelos de clasificación con balanceo)
+- _regression_script.py_ (modelos de regresión con balanceo)
+- _graphics_script.py_ (gráficos)
+- _5ht2a_definitive_nosalts.csv_ (set de datos limpio)
+- _inchikeys_2.txt_ (notación InChiKeys que importa el código para adicionar una de las columnas; necesario para eliminar los duplicados)
+Se recomienda ejecutarlo en este orden: 1) _regression_script.py_, 2) _tfm_script_balanced.py_, 3) _graphics_script.py_
 
 ## Cómo utilizarlo
 Al abrir el primer script es importante establecer un directorio de trabajo en la máquina en la que se trabaje, donde también han de estar localizados los archivos _5ht2a_definitive_nosalts.csv_ y _inchikeys_2.txt_  
