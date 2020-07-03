@@ -33,3 +33,5 @@ Si se quiere reproducir el estudio exactamente igual, es conveniente no realizar
 from warnings import simplefilter # import warnings filter
 simplefilter(action='ignore', category=FutureWarning) # ignore all future warnings
 ```
+Por el resto de código, se debería de poder ejecutar de forma secuencial sin problemas. Las librerías necesarias están en los diferentes scripts, con sus respectivas llamadas cuando son necesitadas.  
+Aparecen: _pandas, numpy, yellowbrick, yellowbrick.classifier, yellowbrick.model_selection, rdkit, rdkit.Chem, seaborn, matplotlib.pyplot, sklearn.cluster, sklearn, sklearn.model_selection, rdkit.DataStructs.cDataStructs, sklearn.metrics, sklearn.linear_model, sklearn.ensemble, imblearn.under_sampling, sklearn.neighbors, sklearn.naive_bayes_.
