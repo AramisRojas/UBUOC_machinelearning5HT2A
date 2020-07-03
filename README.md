@@ -29,6 +29,8 @@ A continuación, se muestra como ejemplo la ruta donde estaban estos archivos en
 import os 
 os.chdir(r"C:/Users/usuario/OneDrive/EstadisticaUOC/4-SEMESTRE/TFM/Datos_recuperados_ChEMBL")
 ```
+**Se recomienda ejecutarlo en este orden: 1) _regression_script.py_, 2) _tfm_script_balanced.py_, 3) _graphics_script.py_**
+
 Si se quiere reproducir el estudio exactamente igual, es conveniente no realizar cambios; especialmente, no modificar las líneas relativas a los warnings.
 ```python
 from warnings import simplefilter # import warnings filter
