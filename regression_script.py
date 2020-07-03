@@ -79,9 +79,52 @@ import pandas as pd
 df_final_regr = df_final.dropna()
 df_final_regr.reset_index(drop=True)
 
+# =============================================================================
+# DBSCAN (partial)
+# =============================================================================
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+from sklearn.cluster import DBSCAN
+from sklearn import preprocessing
+
+f1 = df_final_regr["full_mwt"].values
+f2 = df_final_regr["pchembl_value"].values
+
+full_mwt = df_final_regr["full_mwt"]
+pchembl_values = df_final_regr["pchembl_value"]
+
+concatenation = [full_mwt, pchembl_values]
+df_dbscan = pd.concat(concatenation, axis=1)
+
+min_max_scaler = preprocessing.MinMaxScaler()
+df_dbscan_scal = min_max_scaler.fit_transform(df_dbscan)
+df_dbscan_scal = pd.DataFrame(df_dbscan_scal)
+df_dbscan_scal = df_dbscan_scal.rename(columns = {0: "full_mwt", 1: "pchembl_value"})
+
+#Re-cluster
+modelDB2 = DBSCAN(eps=0.045, min_samples=15).fit(df_dbscan_scal)
+clusters2 = modelDB2.fit_predict(df_dbscan_scal)
+df_values = df_dbscan_scal.values
+plt.scatter(df_values[:,1], df_values[:,0], c=clusters2, cmap = "plasma")
+plt.xlabel("pchembl_value")
+plt.ylabel("full_mwt")
+
+#Count of outliers
+copy = pd.DataFrame()
+copy["full_mwt"] = df_final_regr["full_mwt"].values
+copy["pchembl_value"] = df_final_regr["pchembl_value"].values
+copy["label"] = clusters2
+copy["MFPS"] = df_final_regr["MFPS"]
+copy["MACCS_FPS"] = df_final_regr["MACCS_FPS"]
+
+#Drop outliers
+copy = copy.drop(copy[copy['label'] == -1].index)
+f11= copy["full_mwt"].values
+f22= copy["pchembl_value"].values
 
 #New dataset with outliers to re-try models (from graphics_script.py)
-#df_final_wo_outs = copy 
+df_final_wo_outs = copy
 
 # =============================================================================
 # REGRESSIONS
