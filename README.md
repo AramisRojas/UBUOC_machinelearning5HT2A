@@ -18,7 +18,7 @@ df_final['MFPS'] = mfps
 - regression_script.py (modelos de regresión con balanceo)
 - graphics_script.py (gráficos)
 - 5ht2a_definitive_nosalts.csv (set de datos limpio)
-- inchikeys_2.txt (necesario para eliminar los duplicados  
+- inchikeys_2.txt (notación InChiKeys que importa el código para adicionar una de las columnas; necesario para eliminar los duplicados)
 Se recomienda ejecutarlo en este orden: 1) regression_script.py, 2) tfm_script_balanced.py, 3) graphics_script.py
 
 ## Cómo utilizarlo
@@ -35,3 +35,7 @@ simplefilter(action='ignore', category=FutureWarning) # ignore all future warnin
 ```
 Por el resto de código, se debería de poder ejecutar de forma secuencial sin problemas. Las librerías necesarias están en los diferentes scripts, con sus respectivas llamadas cuando son necesitadas.  
 Aparecen: _pandas, numpy, yellowbrick, yellowbrick.classifier, yellowbrick.model_selection, rdkit, rdkit.Chem, seaborn, matplotlib.pyplot, sklearn.cluster, sklearn, sklearn.model_selection, rdkit.DataStructs.cDataStructs, sklearn.metrics, sklearn.linear_model, sklearn.ensemble, imblearn.under_sampling, sklearn.neighbors, sklearn.naive_bayes_.
+
+## Contacto
+Si se encuentra algún bug en el código o se quiere hacer algún comentario, escribe a: aramisrojas.farmacia@gmail.com
+
