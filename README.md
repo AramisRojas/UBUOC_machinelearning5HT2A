@@ -16,4 +16,14 @@ Si se desea realizar un estudio diferente, la variable descriptora esencial ser�
 Se recomienda ejecutarlo en este orden: 1) regression_script.py, 2) tfm_script_balanced.py, 3) graphics_script.py
 
 ## Cómo utilizarlo
-Al abrir el primer script es importante establecer un directorio de trabajo en la máquina en la que se trabaje, donde también han de estar localizados los archivos _5ht2a_definitive_nosalts.csv_ y _inchikeys_2.txt_
+Al abrir el primer script es importante establecer un directorio de trabajo en la máquina en la que se trabaje, donde también han de estar localizados los archivos _5ht2a_definitive_nosalts.csv_ y _inchikeys_2.txt_  
+A continuación, se muestra como ejemplo la ruta donde estaban estos archivos en la máquina original: 
+```python
+import os 
+os.chdir(r"C:/Users/usuario/OneDrive/EstadisticaUOC/4-SEMESTRE/TFM/Datos_recuperados_ChEMBL")
+```
+Si se quiere reproducir el estudio exactamente igual, es conveniente no realizar cambios; especialmente, no modificar las líneas relativas a los warnings.
+```python
+from warnings import simplefilter # import warnings filter
+simplefilter(action='ignore', category=FutureWarning) # ignore all future warnings
+```
