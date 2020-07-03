@@ -4,82 +4,18 @@ Created on Wed May  6 23:09:42 2020
 
 @author: usuario
 """
-#*||Importing data||*
-import os 
-os.chdir(r"C:/Users/usuario/OneDrive/EstadisticaUOC/4-SEMESTRE/TFM/Datos_recuperados_ChEMBL")
-
-from warnings import simplefilter # import warnings filter
-simplefilter(action='ignore', category=FutureWarning) # ignore all future warnings
-
-import pandas as pd
-df = pd.read_csv("5ht2a_definitive_nosalts.csv")
-
-
-#*||Cbind of inchikeys to dataframe. Drop duplicates||*
-import numpy as np
-
-df_2 = np.genfromtxt(fname="inchikeys_2.txt", dtype="str", skip_header=1)
-
-df_2df = pd.DataFrame(data=df_2, columns=["InChIKey_notation"])
-
-df_final = pd.concat([df, df_2df], axis=1)
-
-df_final.drop_duplicates(subset="InChIKey_notation",
-                         keep = 'first', inplace = True)
-
-df_final.to_csv("results_unique_p5.csv", index=False)
-
-#*****FINGERPRINTS*****
-#conda create -c rdkit -n my-rdkit-env rdkit
-#conda activate my-rdkit-env
-#conda deactivate
-
-from rdkit import Chem
-from rdkit.Chem import PandasTools
-from rdkit.Chem import rdFingerprintGenerator
-
-#df_final.head()
-
-#*Morgan fingerprints by default*
-PandasTools.AddMoleculeColumnToFrame(df_final,smilesCol='canonical_smiles')
-
-mfps = rdFingerprintGenerator.GetFPs(list(df_final['ROMol']))
-
-df_final['MFPS'] = mfps
-
-#*MACCS fingerprints*
-from rdkit.Chem import MACCSkeys
-
-romol_li = list(df_final['ROMol'])
-
-maccs_fps = [MACCSkeys.GenMACCSKeys(x) for x in romol_li]
-
-df_final['MACCS_FPS'] = maccs_fps
-
-#*Morgan fingerprints with AllChem*
-from rdkit.Chem import AllChem
-
-morgan_fps2 = [AllChem.GetMorganFingerprint(x,2) for x in romol_li] #Very important: give the radius.
-morgan_fps3 = [AllChem.GetMorganFingerprint(x,3) for x in romol_li]
-
-df_final['MorganAllChem_FPS'] = morgan_fps2
-df_final['Morgan3'] = morgan_fps3
-
-#*Topological fingerprints*
-topol_fps = [Chem.RDKFingerprint(x) for x in romol_li]
-
-df_final['Topol_FPS'] = topol_fps
-
-df_final.to_csv("results_fps_wp5.csv", index=False)
-
-
-#*||Encode numeric data as categorical||*
+# =============================================================================
+# *||Encode numeric data as categorical||*
+# =============================================================================
 import numpy as np
 #df_final['activities'] = np.where(df_final['pchembl_value']>=6, 1, 0)
 df_final_wo_outs['activities'] = np.where(df_final_wo_outs['pchembl_value']>=6, 1, 0)
 df_final_wo_outs = df_final_wo_outs.dropna()
 
-#*****MORGAN-2*****
+# =============================================================================
+# *****MORGAN-2*****
+# =============================================================================
+
 #-----------------------------------------------------------------
 m2 = df_final_wo_outs['MFPS']
 y = df_final_wo_outs['activities']
@@ -870,8 +806,9 @@ final_table_morg2_bal.to_csv("final_table_morg2_bal.csv", index=True)
 final_trues_negs_morg2_bal.to_csv("final_trues_negs_morg2_bal.csv", index=True)
 final_F1_recall_morg2_bal.to_csv("final_F1_recall_morg2_bal.csv", index=True)
 
-#------------
-#*****MACCS*****
+# =============================================================================
+# *****MACCS*****
+# =============================================================================
 #-----------------------------------------------------------------
 df_final_wo_outs['activities'] = np.where(df_final_wo_outs['pchembl_value']>=6, 1, 0)
 maccs = df_final_wo_outs['MACCS_FPS']
