@@ -22,6 +22,7 @@ df_final['MFPS'] = mfps
 Se recomienda ejecutarlo en este orden: 1) _regression_script.py_, 2) _tfm_script_balanced.py_, 3) _graphics_script.py_
 
 ## Cómo utilizarlo
+Se ha utilizado el IDE Spyder, pero también se podría utilizar Jupyter notebooks.
 Al abrir el primer script es importante establecer un directorio de trabajo en la máquina en la que se trabaje, donde también han de estar localizados los archivos _5ht2a_definitive_nosalts.csv_ y _inchikeys_2.txt_  
 A continuación, se muestra como ejemplo la ruta donde estaban estos archivos en la máquina original: 
 ```python
