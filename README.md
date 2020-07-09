@@ -22,7 +22,13 @@ df_final['MFPS'] = mfps
 Se recomienda ejecutarlo en este orden: 1) _regression_script.py_, 2) _tfm_script_balanced.py_, 3) _graphics_script.py_
 
 ## Cómo utilizarlo
-Se ha utilizado el IDE Spyder dentro del entorno Anaconda, pero también se podría utilizar Jupyter notebooks. Es necesario instalar previamente el módulo rdkit https://www.rdkit.org/docs/Install.html#how-to-install-rdkit-with-conda
+Se ha utilizado el IDE Spyder dentro del entorno Anaconda, pero también se podría utilizar Jupyter notebooks. 
+Es necesario instalar previamente el módulo rdkit https://www.rdkit.org/docs/Install.html#how-to-install-rdkit-with-conda y quizá sea necesario, dentro del environment de rdkit, instalar ipython (Anaconda prompt)
+```
+conda create -c rdkit -n my-rdkit-env rdkit
+conda activate my-rdkit-env
+conda install ipython
+```
 Al abrir el primer script es importante establecer un directorio de trabajo en la máquina en la que se trabaje, donde también han de estar localizados los archivos _5ht2a_definitive_nosalts.csv_ y _inchikeys_2.txt_  
 A continuación, se muestra como ejemplo la ruta donde estaban estos archivos en la máquina original: 
 ```python
