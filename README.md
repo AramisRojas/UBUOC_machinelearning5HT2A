@@ -23,7 +23,7 @@ Se recomienda ejecutarlo en este orden: 1) _regression_script.py_, 2) _tfm_scrip
 
 ## Cómo utilizarlo
 Se ha utilizado el IDE Spyder dentro del entorno Anaconda, pero también se podría utilizar Jupyter notebooks. 
-Es necesario instalar previamente el módulo rdkit https://www.rdkit.org/docs/Install.html#how-to-install-rdkit-with-conda y quizá sea necesario, dentro del environment de rdkit, instalar ipython (Anaconda prompt)
+Es necesario instalar previamente el módulo rdkit https://www.rdkit.org/docs/Install.html#how-to-install-rdkit-with-conda y quizá sea necesario, si existen problemas para reconocer el módulo rdkit en Spyder/Jupyter, dentro del environment de rdkit, instalar ipython (Anaconda prompt).
 ```
 conda create -c rdkit -n my-rdkit-env rdkit
 conda activate my-rdkit-env
