@@ -25,24 +25,25 @@ It is recommended to run it in this order: 1) _regression_script.py_, 2) _tfm_sc
 ## How to use
 The Spyder IDE has been used within the Anaconda environment, but Jupyter notebooks could also be used.
 The rdkit module needs to be previously installed https://www.rdkit.org/docs/Install.html#how-to-install-rdkit-with-conda and may be necessary if there are problems recognizing the rdkit module in Spyder / Jupyter, inside the rdkit environment, install ipython (Anaconda prompt).
-`` ''
+
+``
 conda create -c rdkit -n my-rdkit-env rdkit
 conda activate my-rdkit-env
 conda install ipython
-`` ''
+``
 When opening the first script it is important to establish a working directory on the machine where you are working, where the _5ht2a_definitive_nosalts.csv_ and _inchikeys_2.txt_ files must also be located.
 Here is an example of the path where these files were on the original machine:
 python
 import you
 os.chdir (r "C: / Users / user / OneDrive / EstadisticaUOC / 4-SEMESTRE / TFM / Datos_recuperados_ChEMBL")
-`` ''
+``
 ** It is recommended to run it in this order: 1) _regression_script.py_, 2) _tfm_script_balanced.py_, 3) _graphics_script.py _ **
 
 If you want to reproduce the study exactly the same, it is convenient not to make changes; especially, do not modify the lines related to warnings.
 python
 from warnings import simplefilter # import warnings filter
 simplefilter (action = 'ignore', category = FutureWarning) # ignore all future warnings
-`` ''
+``
 For the rest of the code, it should be able to run sequentially without problems. The necessary libraries are in the different scripts, with their respective calls when they are needed.
 They appear: _pandas, numpy, yellowbrick, yellowbrick.classifier, yellowbrick.model_selection, rdkit, rdkit.Chem, seaborn, matplotlib.pyplot, sklearn.cluster, sklearn, sklearn.model_selection, rdkit.DataStructs.cDatanlearstrics. linear_model, sklearn.ensemble, imblearn.under_sampling, sklearn.neighbors, sklearn.naive_bayes_.
 
@@ -58,6 +59,7 @@ Lenguaje: Python // Autor@: Aramis Adriana Rojas Mena
 En el siguiente repositorio se encuentran los scripts utilizados para llevar a cabo la ejecución de los modelos de machine learning para la predicción de la actividad inhibitoria sobre este receptor 5-HT2A particular. Los datos originales utilizados se encuentran en este repositorio bajo la extension ".csv" y han sido obtenidos mediante el gestor Postgres con volcado de toda la BBDD de ChEMBL (v.26). Se facilitan los datos de entrada (input) necesarios para reproducir el estudio de forma idéntica al ejecutado por la autora.  
 
 Si se desea realizar un estudio con datos diferentes, la variable descriptora esencial sería disponer de las moléculas en notación SMILES (que posteriormente será transformada a un objeto de clase ROMol), y como variable regresora (a predecir) la Ki, que aquí es "pchembl_value" (constante de inhibición; recomendable su normalización logaritmica si no lo estuviera)
+
 ```python
 #*Morgan fingerprints by default*
 PandasTools.AddMoleculeColumnToFrame(df_final,smilesCol='canonical_smiles')
