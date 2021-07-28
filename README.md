@@ -33,6 +33,7 @@ conda install ipython
 ``
 When opening the first script it is important to establish a working directory on the machine where you are working, where the _5ht2a_definitive_nosalts.csv_ and _inchikeys_2.txt_ files must also be located.
 Here is an example of the path where these files were on the original machine:
+``
 python
 import you
 os.chdir (r "C: / Users / user / OneDrive / EstadisticaUOC / 4-SEMESTRE / TFM / Datos_recuperados_ChEMBL")
@@ -40,6 +41,7 @@ os.chdir (r "C: / Users / user / OneDrive / EstadisticaUOC / 4-SEMESTRE / TFM / 
 ** It is recommended to run it in this order: 1) _regression_script.py_, 2) _tfm_script_balanced.py_, 3) _graphics_script.py _ **
 
 If you want to reproduce the study exactly the same, it is convenient not to make changes; especially, do not modify the lines related to warnings.
+``
 python
 from warnings import simplefilter # import warnings filter
 simplefilter (action = 'ignore', category = FutureWarning) # ignore all future warnings
