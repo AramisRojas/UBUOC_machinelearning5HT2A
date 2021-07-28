@@ -34,7 +34,6 @@ conda install ipython
 When opening the first script it is important to establish a working directory on the machine where you are working, where the _5ht2a_definitive_nosalts.csv_ and _inchikeys_2.txt_ files must also be located.
 Here is an example of the path where these files were on the original machine:
 ```
-python
 import os 
 os.chdir(r"C:/Users/usuario/OneDrive/EstadisticaUOC/4-SEMESTRE/TFM/Datos_recuperados_ChEMBL")
 ```
