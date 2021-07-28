@@ -1,5 +1,4 @@
-# Predicción de actividad inhibitoria de moléculas pequeñas sobre el receptor serotoninérgico 5-HT2A mediante modelos de machine learning.
-# Prediction of inhibitory activity of small molecules on the serotonin 5-HT2A receptor using machine learning models. (English version below)
+# Predicción de actividad inhibitoria de moléculas pequeñas sobre el receptor serotoninérgico 5-HT2A mediante modelos de machine learning. (English version below)
 
 (Spanish)
 TFM MSc Bioinformática y bioestadística UB-UOC
@@ -51,6 +50,7 @@ Aparecen: _pandas, numpy, yellowbrick, yellowbrick.classifier, yellowbrick.model
 ## Contacto
 Si se encuentra algún bug en el código o se quiere hacer algún comentario, escribe a: aramisrojas.farmacia@gmail.com
 
+# Prediction of inhibitory activity of small molecules on the serotonin 5-HT2A receptor using machine learning models. 
 (English)
 TFM MSc Bioinformatics and biostatistics UB-UOC
 Language: Python // Author: Aramis Adriana Rojas Mena
