@@ -33,15 +33,14 @@ conda install ipython
 ```
 When opening the first script it is important to establish a working directory on the machine where you are working, where the _5ht2a_definitive_nosalts.csv_ and _inchikeys_2.txt_ files must also be located.
 Here is an example of the path where these files were on the original machine:
-```
+```python
 import os 
 os.chdir(r"C:/Users/usuario/OneDrive/EstadisticaUOC/4-SEMESTRE/TFM/Datos_recuperados_ChEMBL")
 ```
 ** It is recommended to run it in this order: 1) _regression_script.py_, 2) _tfm_script_balanced.py_, 3) _graphics_script.py _ **
 
 If you want to reproduce the study exactly the same, it is convenient not to make changes; especially, do not modify the lines related to warnings.
-```
-python
+```python
 from warnings import simplefilter # import warnings filter
 simplefilter(action='ignore', category=FutureWarning) # ignore all future warnings
 ```
@@ -61,8 +60,7 @@ En el siguiente repositorio se encuentran los scripts utilizados para llevar a c
 
 Si se desea realizar un estudio con datos diferentes, la variable descriptora esencial sería disponer de las moléculas en notación SMILES (que posteriormente será transformada a un objeto de clase ROMol), y como variable regresora (a predecir) la Ki, que aquí es "pchembl_value" (constante de inhibición; recomendable su normalización logaritmica si no lo estuviera)
 
-```
-python
+```python
 #*Morgan fingerprints by default*
 PandasTools.AddMoleculeColumnToFrame(df_final,smilesCol='canonical_smiles')
 mfps = rdFingerprintGenerator.GetFPs(list(df_final['ROMol']))
@@ -89,8 +87,7 @@ conda install ipython
 Al abrir el primer script es importante establecer un directorio de trabajo en la máquina en la que se trabaje, donde también han de estar localizados los archivos _5ht2a_definitive_nosalts.csv_ y _inchikeys_2.txt_  
 A continuación, se muestra como ejemplo la ruta donde estaban estos archivos en la máquina original: 
 
-```
-python
+```python
 import os 
 os.chdir(r"C:/Users/usuario/OneDrive/EstadisticaUOC/4-SEMESTRE/TFM/Datos_recuperados_ChEMBL")
 ```
@@ -98,8 +95,7 @@ os.chdir(r"C:/Users/usuario/OneDrive/EstadisticaUOC/4-SEMESTRE/TFM/Datos_recuper
 
 Si se quiere reproducir el estudio exactamente igual, es conveniente no realizar cambios; especialmente, no modificar las líneas relativas a los warnings.
 
-```
-python
+```python
 from warnings import simplefilter # import warnings filter
 simplefilter(action='ignore', category=FutureWarning) # ignore all future warnings
 ```
