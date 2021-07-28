@@ -7,12 +7,12 @@ Language: Python // Author: Aramis Adriana Rojas Mena
 In the following repository you will find the scripts used to carry out the execution of the machine learning models for the prediction of the inhibitory activity on this particular 5-HT2A receptor. The original data used is in this repository under the extension ".csv" and has been obtained through the Postgres manager with a dump of the entire ChEMBL database (v.26). The necessary input data are provided to reproduce the study in an identical way to that carried out by the author.
 
 If you want to carry out a study with different data, the essential descriptor variable would be to have the molecules in SMILES notation (which will later be transformed to a ROMol class object), and as the regressor variable (to predict) the Ki, which here is " pchembl_value "(inhibition constant; logarithmic normalization recommended if it is not)
-python
-# * Morgan fingerprints by default *
-PandasTools.AddMoleculeColumnToFrame (df_final, smilesCol = 'canonical_smiles')
-mfps = rdFingerprintGenerator.GetFPs (list (df_final ['ROMol']))
-df_final ['MFPS'] = mfps
-`` ''
+```python
+#*Morgan fingerprints by default*
+PandasTools.AddMoleculeColumnToFrame(df_final,smilesCol='canonical_smiles')
+mfps = rdFingerprintGenerator.GetFPs(list(df_final['ROMol']))
+df_final['MFPS'] = mfps
+```  
 
 ## Repository content
 - _tfm_script_balanced.py_ (balancing classification models)
